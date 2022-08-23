@@ -5,10 +5,10 @@ class User {
     this.body = body;
   }
 
-  login() {
+  async login() {
     //client.id는 받아온 id고 걍 id는 DB에 있는거
     const client = this.body;
-    const { id, pw } = UserStorage.getUserInfo(client.id);
+    const { id, pw } = await UserStorage.getUserInfo(client.id);
     if (id) {
       if (id === client.id && pw === client.pw) {
         return { success: true };
