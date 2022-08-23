@@ -4,9 +4,9 @@ const registerController = {
   output: (req, res) => {
     res.render("home/register");
   },
-  process: (req, res) => {
+  process: async (req, res) => {
     const user = new User(req.body);
-    const response = user.register();
+    const response = await user.register();
     return res.json(response);
   },
 };
